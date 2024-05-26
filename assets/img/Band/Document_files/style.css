@@ -1,0 +1,282 @@
+/* Reset css */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+/* thẻ html có tính kế thừa=> các thẻ có chữ sẽ có front giống
+    còn thẻ * nếu để thì cả các thẻ ko có chữ cũng bị 
+*/
+html{
+    font-family: "Lato", sans-serif;
+}
+
+/*
+1.Vị trí 
+2.Màu sắc
+3.Kiểu chữ
+4.Kích thước
+ */
+
+
+ .text-white{
+    color : #fff !important;
+ }
+
+.clear{
+    clear: both;
+}
+
+#main{
+
+}
+
+#header{
+    height: 46px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Có thể dùng width : 100% */
+    right: 0;
+    z-index: 1;
+}
+
+#nav{
+    /* nav chỉ chiếm vừa nội dung để search btn có thể
+    nối lên */
+    display: inline-block;
+}
+#nav, .subnav{
+    list-style-type: none;
+}
+
+#nav > li{
+    display: inline-block;
+}
+
+#nav li{
+    position: relative;
+}
+
+/* Khi hover vào li thì thẻ con a sẽ dc css */
+#nav > li:hover > a,
+#nav .subnav li:hover a
+{
+    color: #000;
+    background-color: #ccc ;
+}
+
+
+#nav li a {
+    text-decoration: none;
+    /* Căn giữa chữ theo chiều cao */
+    /* Mặc định chữ sẽ ở giữa theo chiều cao
+    => cho line height= kích thước cha để nó đứng giữa */
+    line-height: 46px;
+    padding: 0 24px;
+    display: block;
+
+}
+
+
+#nav > li > a{
+    color:white;
+    text-transform: uppercase;
+    
+}
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav .subnav{
+    /* Ẩn menu con */
+    display: none;
+    background-color: white;
+    position: absolute;
+    min-width: 60px;
+    top : 100%;
+    left: 0;
+    /* bóng đổ */
+    box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.3) ;
+}
+
+
+#nav .subnav a{
+    color :  #333;
+    padding: 0 16px;
+    line-height: 38px   ;
+}
+
+#nav .nav-arrow-down {
+    font-size: 13px;
+}
+#header .search-btn{
+    /* Khi có float sẽ mất đi tính kế thừa chiều ngang như block */
+    float: right;   
+}
+
+/* #header .test{
+    display: flex;
+} */
+
+
+#header .search-icon{
+    color: white;
+    font-size: 20px ; 
+    line-height: 46px;
+    padding: 0 21px;
+}
+
+#header .search-btn:hover{
+    /* Khi chuột ở đó đổi sang bàn tay */
+    cursor: pointer;
+    background-color: rgb(238, 62, 62);
+}
+
+
+
+#slider{
+    /* Vì header có attr position nên nó nổi lên
+    => slider chiếm cả vùng của header  */
+    margin-top: 46px;
+    padding-top: 50%;
+
+    /* 50% của chính nó */
+    /* padding-top: 50%; */
+    /* background-image: url('/TheBand/assets/img/slider/slider1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center; */
+    background: url('/TheBand/assets/img/slider/slider1.jpg') top center/ cover no-repeat ;
+
+    position: relative;
+}
+
+#slider .text-content{
+    position: absolute;
+    bottom: 47px;
+    color: white;
+    text-align: center;
+    /* C1 căn giữa */
+    /* left : 50%;
+    transform: translateX(-50%); */
+    /* C2  */
+    width: 100%;
+    /* C3 */
+    /* right: 0;
+    left: 0; */
+
+}
+#slider .text-heading{
+    font-weight: 500;
+    font-size: 24px;
+    margin: 25px;
+}
+#slider .text-dsc{
+    font-size: 15px;
+}
+.text-content{
+    color: white;
+}
+
+
+#content{
+
+}
+
+#content .content-section{
+    width: 800px;
+    padding : 64px 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#content .section-heading{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    /* KHoảng cách các chữ */
+    letter-spacing: 5px;
+
+}
+#content .section-sub-heading{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic;
+    /* Độ trong suốt từ 0->1 */
+    opacity: 0.6;
+}
+
+#content .about-text{
+    margin-top: 25px;
+    font-size: 15px;    
+    /* Căn đều 2 bên chữ, ko thụt ra thụt vào */
+    text-align: justify;
+    /* Độ cao 1 dòng */
+    line-height: 1.4;
+}
+
+#content .member-list{
+    margin-top: 48px;
+    /* vì các phần tử con dùng float => nổi khỏi mặt phảng 
+    => phần tử cha co lại => thằng contact đẩy lên  */
+    /* Làm như này thì nó sẽ lấy lại kích thưỡc=> contact đẩy xuống */
+    /* overflow: hidden;  */
+    /* Cách 2 dùng clear */
+}
+
+#content .member-item{
+    float: left;
+    /* Chia đều vị trí ảnh  */
+    /* width: 33.33%; */
+    width: calc(100%/3);
+    text-align: center;
+
+    
+}
+
+#content .member-name{
+    font-size:15px ;
+
+}
+
+#content .member-img{
+    margin-top: 15px;
+    width: 154px;
+    border-radius: 5px;
+
+}
+
+.tour-section{
+    background-color: #000;
+}
+
+.ticket-list{
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.ticket-list li{
+    font-size: 15px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    color: #757575;
+}
+
+.ticket-list .sold-out{
+    background-color: #f44336;
+    color : #fff
+    
+}
+
+.ticket-list .quantity{
+
+}
+#footer{
+
+}
